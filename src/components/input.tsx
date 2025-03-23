@@ -1,26 +1,21 @@
-import React from "react";
+"use_client";
+import React, { ChangeEventHandler } from "react";
 
 interface InputProps {
   id: string;
-  //onChange: any ;
+  onChange: ChangeEventHandler<HTMLInputElement>;
   value: string;
   label: string;
   type?: string;
 }
 
-const Input: React.FC<InputProps> = ({
-  id,
-// onChange,
-  value,
-  label,
-  type
-}) => {
+const Input: React.FC<InputProps> = ({ id, onChange, value, label, type }) => {
   return (
     <div className="relative">
       <input
-     //   onChange={onChange}
+        onChange={onChange}
         type={type}
-        value={value} 
+        value={value}
         id={id}
         className="
           block
@@ -57,11 +52,12 @@ const Input: React.FC<InputProps> = ({
       peer-focus:scale-75 
       peer-focus:-translate-y-3
   "
-        htmlFor={id}>
+        htmlFor={id}
+      >
         {label}
       </label>
     </div>
-  )
-}
+  );
+};
 
 export default Input;
