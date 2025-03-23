@@ -1,11 +1,11 @@
-import React, { ChangeEventHandler } from "react";
+import React, { ChangeEventHandler, HTMLInputTypeAttribute } from "react";
 
 interface InputProps {
   id: string;
   onChange: ChangeEventHandler<HTMLInputElement>;
   value: string;
   label: string;
-  type?: string;
+  type?: HTMLInputTypeAttribute;
 }
 
 const Input: React.FC<InputProps> = ({ id, onChange, value, label, type }) => {
@@ -48,8 +48,8 @@ const Input: React.FC<InputProps> = ({ id, onChange, value, label, type }) => {
         left-6 
         peer-placeholder-shown:scale-100 
         peer-placeholder-shown:translate-y-0
-      peer-focus:scale-75 
-      peer-focus:-translate-y-3
+        peer-focus:scale-75 
+       peer-focus:-translate-y-3
   "
         htmlFor={id}
       >
