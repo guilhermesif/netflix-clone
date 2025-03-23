@@ -1,4 +1,3 @@
-"use_client";
 import React, { ChangeEventHandler } from "react";
 
 interface InputProps {

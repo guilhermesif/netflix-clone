@@ -1,3 +1,4 @@
+"use client";
 import Image from "next/image";
 import Input from "../../components/input";
 
@@ -14,7 +15,7 @@ export default function AuthPage() {
             <div className="flex flex-col gap-4">
               <Input
                 label="Email"
-         //       onChange={(e) => console.log(e.target.value)}
+                onChange={(e) => console.log(e.target.value)}
                 id="email"
                 type="email"
                 value=""
