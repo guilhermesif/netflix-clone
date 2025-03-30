@@ -20,13 +20,13 @@ export default function AuthPage() {
             <div className="flex flex-col gap-4">
               <Input
                 label="Username"
-                onChange={(ev:any) => setName(ev.target.value)}
+                onChange={(ev) => setName(ev.target.value)}
                 id="name"
                 value={name}
               />
               <Input
                 label="Email"
-                onChange={(ev:any) => setEmail(ev.target.value)}
+                onChange={(ev) => setEmail(ev.target.value)}
                 id="email"
                 type="email"
                 value={email}
