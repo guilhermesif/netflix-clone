@@ -1,8 +1,9 @@
 'use client';
-import Image from 'next/image';
-import Input from '../../components/input';
-import { useCallback, useState } from 'react';
 import axios from 'axios';
+import { signIn } from 'next-auth/react';
+import Image from 'next/image';
+import { useCallback, useState } from 'react';
+import Input from '../../components/input';
 
 export default function AuthPage() {
 	const [email, setEmail] = useState('');
@@ -29,6 +30,20 @@ export default function AuthPage() {
 			console.log(error);
 		}
 	}, [email, name, password, toggleVariant]);
+
+  const login = useCallback(async () => {
+    try {
+	  await signIn('credentials', {
+        email,
+        password,
+        redirect: false,
+				redirectUrl: '/'
+				,
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  }, [email, password]);
 
 	return (
 		<div className="relative h-full w-full bg-[url('/images/hero.jpg')] bg-no-repeat bg-center bg-fixed bg-cover">
@@ -66,7 +81,7 @@ export default function AuthPage() {
 							/>
 						</div>
 						<button
-							onClick={register}
+							onClick={variant === 'login' ? login : register}
 							className='bg-red-600 py-3 text-white rounded-md w-full mt-10 hover:bg-red-700 transition'
 						>
 							{variant === 'login' ? 'Login' : 'Sign Up'}
